@@ -1,35 +1,38 @@
 import React from "react";
+import Filters from "./components/Filters";
 import { ChevronDown, MapPin, ArrowRight } from "lucide-react";
 
 function App() {
   return (
-    <div className="font-sans min-h-screen bg-[#FFFBF3]">
+    <div className="font-sans min-h-screen">
       {/* Navbar */}
-      <nav className="bg-[#FFF7E2] px-24 py-4 flex justify-between items-center">
-        <div className="flex gap-8">
-          <img src="/title.png" className="" alt="title" />
-          <div className="flex space-x-8">
-            <button className="text-[#474747] hover:text-[#3A643B] font-bold">
+      <nav className="bg-[#FFF7E2] px-4 sm:px-8 md:px-16 lg:px-24 py-4 flex flex-wrap justify-between items-center">
+        <div className="flex flex-wrap gap-4 sm:gap-8 items-center">
+          <img src="/title.png" className="h-8 sm:h-10" alt="title" />
+          <div className="flex space-x-4 sm:space-x-8">
+            <button className="text-[#474747] hover:text-[#3A643B] font-bold text-sm sm:text-base">
               Home
             </button>
-            <button className="text-[#3A643B] font-bold">Find Doctors</button>
-            <button className="text-[#474747] hover:text-[#3A643B] font-bold">
+            <button className="text-[#3A643B] font-bold text-sm sm:text-base">
+              Find Doctors
+            </button>
+            <button className="text-[#474747] hover:text-[#3A643B] font-bold text-sm sm:text-base">
               About Us
             </button>
           </div>
         </div>
-        <div className="space-x-4">
-          <button className="px-8 py-2 text-[#3A643B] border-2 border-[#3A643B] rounded-md font-medium">
+        <div className="space-x-2 sm:space-x-4 mt-4 sm:mt-0">
+          <button className="px-4 sm:px-8 py-2 text-[#3A643B] border-2 border-[#3A643B] rounded-md font-medium text-sm sm:text-base">
             Login
           </button>
-          <button className="px-8 py-2 bg-[#3A643B] text-white rounded-md font-medium">
+          <button className="px-4 sm:px-8 py-2 bg-[#3A643B] text-white rounded-md font-medium text-sm sm:text-base">
             Sign-up
           </button>
         </div>
       </nav>
 
       {/* Search Section */}
-      <div className="h-[260px] relative bg-[#EAF2EA] pt-16 pb-20 px-6">
+      <div className="relative bg-[#EAF2EA] py-8 sm:py-16 px-4 sm:px-6">
         {/* Background Circles */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-[-90px] left-[10%] w-[184px] h-[184px] rounded-full bg-[#CFEBCF] opacity-40" />
@@ -40,18 +43,18 @@ function App() {
 
         {/* Content */}
         <div className="relative z-10">
-          <h1 className="text-3xl font-semibold text-center mb-8">
+          <h1 className="text-2xl sm:text-3xl font-semibold text-center mb-6 sm:mb-8">
             Find Expert Doctors For An In-Clinic Session Here
           </h1>
 
-          <div className="flex justify-center gap-4 mb-15">
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
             {/* Location Selector */}
-            <div className="relative">
+            <div className="relative w-full sm:w-auto">
               <MapPin
                 className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#3A643B]"
                 size={20}
               />
-              <select className="w-[200px] pl-10 pr-4 py-3 rounded-md border border-gray-200 bg-white appearance-none cursor-pointer">
+              <select className="w-full sm:w-[200px] pl-10 pr-4 py-3 rounded-md border border-gray-200 bg-white appearance-none cursor-pointer">
                 <option value="" disabled selected>
                   Select Location
                 </option>
@@ -66,11 +69,11 @@ function App() {
             </div>
 
             {/* Search Input */}
-            <div className="relative">
+            <div className="relative w-full sm:w-auto">
               <input
                 type="text"
                 placeholder="eg. Doctor, specialisation, clinic name"
-                className="w-[500px] px-4 py-3 rounded-md border border-gray-200"
+                className="w-full sm:w-[500px] px-4 py-3 rounded-md border border-gray-200"
               />
               <button className="absolute right-3 top-1/2 transform -translate-y-1/2">
                 <ArrowRight className="text-gray-700" size={20} />
@@ -79,29 +82,10 @@ function App() {
           </div>
         </div>
       </div>
+
       {/* Filters */}
-      <div className="flex justify-center gap-4">
-        <button className="px-6 py-2 bg-gray-100 rounded-md flex items-center gap-2">
-          Expertise
-          <ChevronDown size={16} />
-        </button>
-        <button className="px-6 py-2 bg-gray-100 rounded-md flex items-center gap-2">
-          Gender
-          <ChevronDown size={16} />
-        </button>
-        <button className="px-6 py-2 bg-gray-100 rounded-md flex items-center gap-2">
-          Fees
-          <ChevronDown size={16} />
-        </button>
-        <button className="px-6 py-2 bg-gray-100 rounded-md flex items-center gap-2">
-          Languages
-          <ChevronDown size={16} />
-        </button>
-        <button className="px-6 py-2 bg-[#E5EFE5] text-[#3A643B] rounded-md flex items-center gap-2">
-          All filters
-          <ChevronDown size={16} />
-        </button>
-      </div>
+      <Filters />
+      <hr className="mt-4" />
     </div>
   );
 }
