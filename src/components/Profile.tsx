@@ -65,9 +65,9 @@ export default function Profile({
           />
         </div>
         <div className="relative z-10 bottom-1 sm:md:bottom-5 lg:bottom-10 px-6 sm:px-8 md:px-12 py-6 bg-[#FFFBF2] rounded-b-[20px] shadow-lg">
-          <div className="flex flex-wrap gap-8 justify-between items-center">
+          <div className="relative z-10 flex flex-wrap gap-8 justify-between items-center">
             {/* Profile Image */}
-            <div className="relative bottom-24 flex-shrink-0 mx-auto sm:mx-0 sm:bottom-0 sm:top-0">
+            <div className="md:relative sm:static bottom-24 flex-shrink-0 mx-auto sm:mx-0 sm:bottom-0 sm:top-0 lg:top-[-80px]">
               <img
                 src={imageUrl}
                 alt="Profile"
