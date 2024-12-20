@@ -1,7 +1,7 @@
 "use client";
 
 import { Star } from "lucide-react";
-import { Facebook, Instagram, Youtube, Twitter } from "lucide-react";
+import LeftHalf from "./LeftHalf";
 
 interface DoctorProfileHeaderProps {
   name: string;
@@ -23,11 +23,11 @@ export default function Profile({
   following = 18,
   posts = 250,
   imageUrl = "/profile.png",
-  bio = "Hello! I am Dr. Bruce Willis a Gynaecologist in Sanjivni Hospital Surat. love to work with all my hospital staff and seniour doctors. Completed my graduation in Gynaecologist Medicine from the",
+  bio = "Hello! I am Dr. Bruce Willis a Gynaecologist in Sanjivni Hospital Surat. love to work with all my hospital staff and senior doctors. Completed my graduation in Gynaecologist Medicine from the",
   languages = ["English", "Hindi", "Telugu"],
 }: DoctorProfileHeaderProps) {
   return (
-    <div>
+    <div className="min-h-screen">
       {/* Navigation */}
       <nav className="bg-[#FFF7E2] px-4 sm:px-8 md:px-16 lg:px-24 py-4 flex flex-wrap justify-between items-center">
         <div className="flex flex-wrap gap-4 sm:gap-8 items-center">
@@ -56,7 +56,6 @@ export default function Profile({
 
       {/* Profile Header */}
       <div className="w-full px-6 sm:px-12 md:px-16 mt-10">
-        {/* Profile Content */}
         {/* Background Pattern */}
         <div className="mt-3">
           <img
@@ -65,22 +64,45 @@ export default function Profile({
             className="border border-white relative z-0 w-full h-full object-contain rounded-t-[20px]"
           />
         </div>
-        <div className="relative z-10 bottom-10 px-6 sm:px-8 md:px-12 py-6 bg-[#FFFBF2] rounded-b-[20px] shadow-lg">
+        <div className="relative z-10 bottom-1 sm:md:bottom-5 lg:bottom-10 px-6 sm:px-8 md:px-12 py-6 bg-[#FFFBF2] rounded-b-[20px] shadow-lg">
           <div className="flex flex-wrap gap-8 justify-between items-center">
             {/* Profile Image */}
-            <div className="flex-shrink-0 mx-auto sm:mx-0">
+            <div className="relative bottom-24 flex-shrink-0 mx-auto sm:mx-0 sm:bottom-0 sm:top-0">
               <img
                 src={imageUrl}
                 alt="Profile"
-                className=" w-[180px] h-[180px] rounded-full border border-white object-cover"
+                className="w-[120px] sm:w-[150px] md:w-[180px] h-[120px] sm:h-[150px] md:h-[180px] lg:top-3 rounded-full border border-white object-cover"
               />
             </div>
 
             {/* Profile Info */}
             <div className="flex-grow">
-              <div className="flex items-center flex-col sm:flex-row sm:gap-12 sm:items-start mt-6">
-                <div className="text-center ml-2 sm:text-left">
-                  <h1 className="text-2xl font-semibold">{name}</h1>
+              <div className="flex items-center flex-col sm:flex-row sm:gap-12 sm:items-start mt-6 md:mt-0">
+                <div className="text-center sm:text-left">
+                  <div className="flex items-center gap-3">
+                    <h1 className="text-2xl font-semibold">{name}</h1>
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      className="w-5 h-5 text-blue-500"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        r="12"
+                        fill="currentColor"
+                        fillOpacity="0.1"
+                      />
+                      <path
+                        d="M8 12.5L10.5 15L16 9"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
                   <p className="text-lg text-gray-600 mb-1">{specialization}</p>
 
                   {/* Rating */}
@@ -102,26 +124,25 @@ export default function Profile({
                 </div>
 
                 {/* Stats */}
-                <div className="flex flex-wrap gap-8 sm:gap-16 mt-5 ml-32 justify-center sm:justify-start text-lg">
-                  <div className="text-center">
+                <div className="flex flex-wrap gap-8 sm:gap-16 mt-5 justify-center sm:justify-start text-lg">
+                  <div className="text-center sm:text-left w-full sm:w-auto">
                     <div className="font-semibold">{followers}</div>
                     <div className="text-xs text-gray-600">Followers</div>
                   </div>
-                  <div className="text-center">
+                  <div className="text-center sm:text-left w-full sm:w-auto">
                     <div className="font-semibold">{following}K</div>
                     <div className="text-xs text-gray-600">Following</div>
                   </div>
-                  <div className="text-center">
+                  <div className="text-center sm:text-left w-full sm:w-auto">
                     <div className="font-semibold">{posts}</div>
                     <div className="text-xs text-gray-600">Posts</div>
                   </div>
                 </div>
               </div>
             </div>
-
             {/* Book Appointment Button */}
             <div className="flex-shrink-0 mx-auto mt-6 sm:mt-0 sm:ml-4">
-              <button className="bg-[#3A643B] text-white text-xl font-semibold px-6 py-2 rounded-lg w-full sm:w-[274px] h-[59px]">
+              <button className="bg-[#3A643B] text-white text-md font-semibold py-2 px-2  rounded-lg h-[50px]">
                 Book an Appointment
               </button>
             </div>
@@ -129,111 +150,12 @@ export default function Profile({
         </div>
       </div>
 
-      {/* About me */}
-      <div className="flex">
-        <div>
-          <div className="border mx-16 bg-white rounded-2xl shadow-sm max-w-2xl mb-10">
-            {/* Header */}
-            <div className="px-10 py-4 rounded-t-2xl bg-gradient-to-l from-[#fcfbfc] to-[#f4f7ec] flex justify-between items-center mb-4">
-              <h2 className="text-lg font-medium">A Little About me</h2>
-              <button className="text-sm border p-2 rounded-lg border-[#3a643b] font-semibold">
-                Follow +
-              </button>
-            </div>
-
-            {/* Bio */}
-            <div className="mb-6 px-10">
-              <p className="text-gray-600 text-md leading-relaxed">
-                {bio}...
-                <div className="flex items-center gap-8">
-                  <div className="w-[80%]">
-                    <hr />
-                  </div>
-                  <button className="text-gray-900 text-sm font-semibold ml-1 hover:underline">
-                    Read More
-                  </button>
-                </div>
-              </p>
-            </div>
-
-            {/* Languages */}
-            <div className="mb-6 px-10 flex gap-10">
-              <h3 className="text-lg mb-3">Language Spoken</h3>
-              <div className="flex gap-3 mb-1">
-                {languages.map((language) => (
-                  <span
-                    key={language}
-                    className="px-4 py-1 flex justify-center items-center w-[100px] bg-gray-100 rounded-full text-sm font-semibold text-gray-600"
-                  >
-                    {language}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Social Links */}
-            <div className="flex gap-4 px-10 mb-5">
-              <a
-                href="#"
-                className="border p-2 rounded-full bg-[#f7f7fc] hover:text-gray-600"
-              >
-                <Facebook className="w-5 h-5 text-[#3A643B]" />
-              </a>
-              <a
-                href="#"
-                className="border p-2 rounded-full bg-[#f7f7fc] hover:text-gray-600"
-              >
-                <Instagram className="w-5 h-5 text-[#3A643B]" />
-              </a>
-              <a
-                href="#"
-                className="border p-2 rounded-full bg-[#f7f7fc] hover:text-gray-600"
-              >
-                <Twitter className="w-5 h-5 text-[#3A643B]" />
-              </a>
-              <a
-                href="#"
-                className="border p-2 rounded-full bg-[#f7f7fc] hover:text-gray-600"
-              >
-                <Youtube className="w-5 h-5 text-[#3A643B]" />
-              </a>
-            </div>
-          </div>
-          <div className="border mx-16 bg-white rounded-2xl shadow-sm max-w-2xl mb-10">
-            {/* Header */}
-            <div className="px-10 py-4 rounded-t-2xl bg-gradient-to-l from-[#fcfbfc] to-[#f4f7ec] flex justify-between items-center mb-4">
-              <h2 className="text-lg font-medium">I Specialize In</h2>
-            </div>
-
-            <div className="flex gap-10 m-10">
-              <div className="flex flex-col items-center justify-center">
-                <div className="w-20 flex p-2 items-center justify-center rounded-xl bg-[#fffcf2]">
-                  <img src="/img1.png" className="w-16 h-16" alt="" />
-                </div>
-                <p>Women's Health</p>
-              </div>
-              <div className="flex flex-col items-center justify-center">
-                <div className="flex p-2 items-center justify-center rounded-xl bg-[#fffcf2]">
-                  <img src="/img2.png" className="w-16 h-16" alt="" />
-                </div>
-                <p>Skin Care</p>
-              </div>
-              <div className="flex flex-col items-center justify-center">
-                <div className="flex p-2 items-center justify-center rounded-xl bg-[#fffcf2]">
-                  <img src="/img3.png" className="w-16 h-16" alt="" />
-                </div>
-                <p>Immunity</p>
-              </div>
-              <div className="flex flex-col items-center justify-center">
-                <div className="flex p-2 items-center justify-center rounded-xl bg-[#fffcf2]">
-                  <img src="/img4.png" className="w-16 h-16" alt="" />
-                </div>
-                <p>Hair Care</p>
-              </div>
-            </div>
-          </div>
+      {/* About Me */}
+      <div className="flex flex-wrap mt-10 px-4 sm:px-12 md:px-16">
+        <div className="w-full lg:w-1/2 p-4">
+          <LeftHalf bio={bio} languages={languages} rating={rating} />
         </div>
-        <div>hi</div>
+        <div className="w-full lg:w-1/2 p-4"></div>
       </div>
     </div>
   );
