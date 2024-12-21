@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface CardsProps {
   doctorsData: {
@@ -15,6 +16,7 @@ interface CardsProps {
 }
 
 export default function Cards({ doctorsData }: CardsProps) {
+  const navigate = useNavigate();
   return (
     <div className="flex flex-wrap justify-center gap-6">
       {doctorsData.map((doctor) => (
@@ -128,7 +130,12 @@ export default function Cards({ doctorsData }: CardsProps) {
 
           {/* Action Buttons */}
           <button className="w-full py-2 mb-2 border border-[#3A643B] text-[#3A643B] rounded-md hover:bg-[#3A643B]/5 transition-colors bg-white">
-            <a href="/doctor/:id">View Profile</a>
+            <a
+              href={`/doctor/${doctor.id}`}
+              onClick={() => navigate(`/doctor/${doctor.id}`)}
+            >
+              View Profile
+            </a>
           </button>
           <button className="w-full py-2 bg-[#3A643B] text-white rounded-md hover:bg-[#2D4F2E] transition-colors">
             Book a consultation
