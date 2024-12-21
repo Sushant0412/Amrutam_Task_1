@@ -49,7 +49,7 @@ function LeftHalf({ bio, languages, rating }: LeftHalfProps) {
         </div>
 
         {/* Social Links */}
-        <div className="flex gap-4 px-10 mb-5">
+        <div className="flex flex-wrap gap-4 px-10 mb-5">
           <a
             href="#"
             className="border p-2 rounded-full bg-[#f7f7fc] hover:text-gray-600"
@@ -82,7 +82,7 @@ function LeftHalf({ bio, languages, rating }: LeftHalfProps) {
           <h2 className="text-lg font-medium">I Specialize In</h2>
         </div>
 
-        <div className="flex flex-wrap gap-10 m-10">
+        <div className="flex justify-center flex-wrap gap-10 m-10">
           <div className="flex flex-col items-center justify-center">
             <div className="w-20 flex p-2 items-center justify-center rounded-xl bg-[#fffcf2]">
               <img src="/img1.png" className="w-16 h-16" alt="" />
@@ -146,7 +146,7 @@ function LeftHalf({ bio, languages, rating }: LeftHalfProps) {
         <div className="px-10 rounded-xl mb-5">
           <div className="bg-[#FAFAFA] p-5 rounded-lg">
             <div className="flex flex-wrap items-center justify-between ">
-              <div className="flex items-center gap-3">
+              <div className="flex flex-wrap items-center gap-3">
                 <img src="/review.png" alt="review" />
                 <div className="flex flex-col">
                   <p className="font-semibold">Alicent Hightower</p>
@@ -181,7 +181,7 @@ function LeftHalf({ bio, languages, rating }: LeftHalfProps) {
         <div className="px-10 rounded-xl mb-5">
           <div className="bg-[#FAFAFA] p-5 rounded-lg">
             <div className="flex flex-wrap items-center justify-between ">
-              <div className="flex items-center gap-3">
+              <div className="flex flex-wrap items-center gap-3">
                 <img src="/review.png" alt="review" />
                 <div className="flex flex-col">
                   <p className="font-semibold">Alicent Hightower</p>

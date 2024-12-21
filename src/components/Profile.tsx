@@ -2,6 +2,7 @@
 
 import { Star } from "lucide-react";
 import LeftHalf from "./LeftHalf";
+import RightHalf from "./RightHalf";
 
 interface DoctorProfileHeaderProps {
   name: string;
@@ -151,11 +152,15 @@ export default function Profile({
       </div>
 
       {/* About Me */}
-      <div className="flex flex-wrap mt-10 px-4 sm:px-12 md:px-16">
-        <div className="w-full lg:w-1/2 p-4">
+      <div className="flex flex-wrap lg:flex-nowrap mt-10 px-4 sm:px-12 md:px-16 gap-4">
+        {/* Left Half */}
+        <div className="w-full lg:w-1/2 flex-shrink-0">
           <LeftHalf bio={bio} languages={languages} rating={rating} />
         </div>
-        <div className="w-full lg:w-1/2 p-4"></div>
+        {/* Right Half */}
+        <div className="w-full lg:w-1/2 flex-shrink-0">
+          <RightHalf />
+        </div>
       </div>
     </div>
   );
